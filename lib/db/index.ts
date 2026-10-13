@@ -5,10 +5,11 @@ import path from "node:path";
 import fs from "node:fs";
 
 const dbPath = path.join(process.cwd(), "aura.db");
-const sqlite = new Database(dbPath);
+const sqlite = new Database(dbPath, { timeout: 10000 });
 
 // Enable WAL mode for fast concurrency
 sqlite.pragma("journal_mode = WAL");
+sqlite.pragma("busy_timeout = 10000");
 
 // Ensure tables exist
 sqlite.exec(`
