@@ -149,9 +149,14 @@ $ npm run build
 
 ## Screenshots
 
-- **Landing Page:** `screenshots/landing.png`
-- **Music Player:** `screenshots/player.png`
-- **Search Catalog:** `screenshots/search.png`
+### Landing Page & Value Proposition
+![Landing Page](screenshots/landing.png)
+
+### Web Player Interface & Sequential Queue
+![Music Player](screenshots/player.png)
+
+### Live YouTube Music Catalog Search
+![Search Catalog](screenshots/search.png)
 
 ---
 
