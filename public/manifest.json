@@ -1,6 +1,6 @@
 {
-  "name": "Aura Music",
-  "short_name": "Aura",
+  "name": "fysic",
+  "short_name": "fysic",
   "description": "Personal Music Streaming Web & PWA dengan Sequential Playback tanpa Iklan",
   "start_url": "/app",
   "display": "standalone",

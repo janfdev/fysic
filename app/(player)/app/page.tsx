@@ -53,7 +53,7 @@ export default function PlayerHomePage() {
             <span>Sequential Engine Siap</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-            Selamat Datang di Aura Music
+            Selamat Datang di fysic
           </h1>
           <p className="text-sm text-slate-300 mb-6 leading-relaxed">
             Putar antrean lagu berurutan dari track 1 hingga akhir tanpa ada interupsi iklan audio dan tanpa shuffle paksa.

@@ -73,7 +73,7 @@ export default function LandingPage() {
 
           <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 mb-10 leading-relaxed">
             Tidak ada forced shuffle. Tidak ada batas lewati lagu. Tidak ada interupsi iklan.
-            Aura Music memanfaatkan katalog YouTube Music dengan audio engine mandiri yang menjamin pemutaran berurutan.
+            fysic memanfaatkan katalog YouTube Music dengan audio engine mandiri yang menjamin pemutaran berurutan.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -146,7 +146,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">
-              Aura Music vs Spotify Free
+              fysic vs Spotify Free
             </h2>
             <p className="text-slate-400 text-base">
               Perbandingan langsung fitur mendasar pemutar musik gratis di perangkat mobile.
@@ -157,7 +157,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-12 bg-[#161926] p-4 sm:p-5 border-b border-white/[0.08] text-xs sm:text-sm font-semibold">
               <div className="col-span-5 sm:col-span-4 text-slate-300">Aspek Pemutar</div>
               <div className="col-span-3 sm:col-span-4 text-slate-400">Spotify Free</div>
-              <div className="col-span-4 sm:col-span-4 text-emerald-400">Aura Music</div>
+              <div className="col-span-4 sm:col-span-4 text-emerald-400">fysic</div>
             </div>
 
             <div className="divide-y divide-white/[0.06]">

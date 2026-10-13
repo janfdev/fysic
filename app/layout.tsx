@@ -3,7 +3,7 @@ import "./globals.css";
 import { PlayerProvider } from "@/lib/player-context";
 
 export const metadata: Metadata = {
-  title: "Aura Music | Personal Music Streaming & Sequential Playback",
+  title: "fysic | Unshuffled Music Streaming & Sequential Playback",
   description: "Web & PWA pemutar musik modern dengan sequential playback tanpa iklan, YouTube Music resolver, dan kontrol lockscreen.",
   manifest: "/manifest.json",
   icons: {

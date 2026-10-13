@@ -47,7 +47,7 @@ export default function LoginPage() {
             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
               <Disc3 className="w-6 h-6" />
             </div>
-            <span className="font-extrabold text-2xl tracking-tight text-white">Aura Music</span>
+            <span className="font-extrabold text-2xl tracking-tight text-white">fysic</span>
           </Link>
           <h1 className="text-xl font-bold text-white tracking-tight">Masuk ke Akun Anda</h1>
           <p className="text-xs text-slate-400 mt-1">

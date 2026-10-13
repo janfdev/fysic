@@ -16,7 +16,7 @@ export default function SiteLayout({
               <Disc3 className="w-5 h-5 text-emerald-400" />
             </div>
             <div>
-              <span className="font-bold text-lg tracking-tight text-white">Aura Music</span>
+              <span className="font-bold text-lg tracking-tight text-white">fysic</span>
               <span className="hidden sm:inline-block text-xs text-slate-400 ml-2 px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">
                 Sequential Engine
               </span>
@@ -66,7 +66,7 @@ export default function SiteLayout({
               <Disc3 className="w-4 h-4 text-emerald-400" />
             </div>
             <p className="text-sm text-slate-400">
-              Aura Music. Pemutar musik independen tanpa paksaan shuffle dan bebas interupsi iklan.
+              fysic. Pemutar musik independen tanpa paksaan shuffle dan bebas interupsi iklan.
             </p>
           </div>
 

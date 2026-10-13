@@ -17,7 +17,7 @@ export default function PlayerLayout({
           <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
             <Disc3 className="w-4 h-4" />
           </div>
-          <span className="font-bold text-sm text-white">Aura Music</span>
+          <span className="font-bold text-sm text-white">fysic</span>
         </Link>
         <div className="flex items-center gap-3">
           <Link
