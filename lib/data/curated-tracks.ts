@@ -18,9 +18,9 @@ export const CURATED_TRACKS: Track[] = [
     artist: "Chill Resonance",
     album: "Midnight Sessions Vol. 1",
     thumbnail: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300&auto=format&fit=crop&q=80",
-    durationText: "0:15",
-    durationSeconds: 15,
-    streamUrl: "/audio/sample1.mp3"
+    durationText: "6:12",
+    durationSeconds: 372,
+    streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
   },
   {
     id: "612643",
@@ -29,9 +29,9 @@ export const CURATED_TRACKS: Track[] = [
     artist: "Quiet Moments",
     album: "Atmosphere",
     thumbnail: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300&auto=format&fit=crop&q=80",
-    durationText: "0:12",
-    durationSeconds: 12,
-    streamUrl: "/audio/sample2.mp3"
+    durationText: "7:05",
+    durationSeconds: 425,
+    streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   },
   {
     id: "612642",
@@ -40,9 +40,9 @@ export const CURATED_TRACKS: Track[] = [
     artist: "Nusantara Indie",
     album: "Senja di Cirebon",
     thumbnail: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&auto=format&fit=crop&q=80",
-    durationText: "0:14",
-    durationSeconds: 14,
-    streamUrl: "/audio/sample3.mp3"
+    durationText: "5:44",
+    durationSeconds: 344,
+    streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
   },
   {
     id: "612641",
@@ -51,9 +51,9 @@ export const CURATED_TRACKS: Track[] = [
     artist: "Retro Wave ID",
     album: "Jalur Pantura Synth",
     thumbnail: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=300&auto=format&fit=crop&q=80",
-    durationText: "0:10",
-    durationSeconds: 10,
-    streamUrl: "/audio/sample4.mp3"
+    durationText: "5:02",
+    durationSeconds: 302,
+    streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
   },
   {
     id: "sh-song1",

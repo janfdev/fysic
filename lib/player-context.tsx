@@ -120,7 +120,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
 
     // Default safe fallback if network fails
     if (!streamSrc) {
-      streamSrc = "/audio/sample1.mp3";
+      streamSrc = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
     }
 
     try {
