@@ -11,7 +11,7 @@ export default function PlayerLayout({
 }) {
   return (
     <div className="h-screen bg-[#121212] text-white flex flex-col overflow-hidden selection:bg-[#1ed760] selection:text-black">
-      {/* Top Mobile Bar — Spotify Dark */}
+      {/* Top Mobile Bar: Spotify Dark Header */}
       <div className="md:hidden h-14 border-b border-[#282828] bg-[#181818] px-4 flex items-center justify-between shrink-0">
         <Link href="/app" className="flex items-center gap-2.5">
           <div className="w-7 h-7 rounded-full bg-[#1ed760] flex items-center justify-center text-black">

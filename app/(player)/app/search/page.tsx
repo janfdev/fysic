@@ -66,30 +66,31 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="p-4 sm:p-8 max-w-7xl mx-auto space-y-8 select-none">
-      {/* Search Header & Pill Input — Spotify Style */}
-      <div className="max-w-2xl">
-        <h1 className="text-3xl font-extrabold text-white tracking-tight mb-2">
+    <div className="p-4 sm:p-8 max-w-7xl mx-auto space-y-8 select-none selection:bg-[#1ed760] selection:text-black">
+      {/* Search Header & Tactile Pill Bar */}
+      <div className="max-w-2xl space-y-3">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
           Cari Katalog Musik
         </h1>
-        <p className="text-xs text-[#b3b3b3] mb-6">
+        <p className="text-xs sm:text-sm text-[#b3b3b3]">
           Ketik judul lagu, musisi, atau genre untuk memutar audio resolusi tinggi tanpa jeda iklan.
         </p>
 
-        <form onSubmit={handleSubmit} className="relative flex items-center">
-          <Search className="w-5 h-5 text-[#b3b3b3] absolute left-4 pointer-events-none" />
+        <form onSubmit={handleSubmit} className="relative flex items-center pt-2">
+          <Search className="w-5 h-5 text-[#727272] absolute left-4 pointer-events-none" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Apa yang ingin kamu dengarkan?"
-            className="w-full pl-12 pr-10 py-3.5 rounded-full bg-[#1f1f1f] border border-transparent text-sm text-white placeholder-[#727272] focus:outline-none focus:border-white focus:bg-[#282828] transition-all shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
+            className="w-full pl-12 pr-10 py-3.5 rounded-full bg-[#181818] border border-[#282828] text-sm text-white placeholder-[#727272] focus:outline-none focus:border-[#1ed760] focus:bg-[#202020] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="absolute right-4 p-1 rounded-full text-[#b3b3b3] hover:text-white"
+              className="absolute right-4 p-1.5 rounded-full text-[#b3b3b3] hover:text-white hover:bg-white/10"
+              aria-label="Bersihkan pencarian"
             >
               <X className="w-4 h-4" />
             </button>
@@ -97,14 +98,14 @@ export default function SearchPage() {
         </form>
 
         {/* Suggestion Chips */}
-        <div className="flex flex-wrap items-center gap-2 mt-4">
+        <div className="flex flex-wrap items-center gap-2 pt-1">
           <span className="text-[11px] font-bold text-[#b3b3b3] uppercase tracking-wider mr-1">Rekomendasi:</span>
           {SUGGESTIONS.map((sug) => (
             <button
               key={sug}
               type="button"
               onClick={() => handleSuggestionClick(sug)}
-              className="text-xs px-3.5 py-1.5 rounded-full bg-[#1f1f1f] hover:bg-[#282828] text-[#b3b3b3] hover:text-white border border-[#282828] transition-colors"
+              className="text-xs px-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#222222] text-[#b3b3b3] hover:text-white border border-[#282828] hover:border-[#383838] transition-colors"
             >
               {sug}
             </button>
@@ -112,10 +113,10 @@ export default function SearchPage() {
         </div>
       </div>
 
-      {/* Content Area */}
+      {/* Results and State Container */}
       <div>
         {loading ? (
-          <div className="py-20 flex flex-col items-center justify-center text-[#b3b3b3]">
+          <div className="py-24 flex flex-col items-center justify-center text-[#b3b3b3]">
             <Loader2 className="w-8 h-8 text-[#1ed760] animate-spin mb-3" />
             <p className="text-sm font-medium">Menghubungkan ke YouTube Music Resolver...</p>
           </div>
@@ -125,27 +126,27 @@ export default function SearchPage() {
             <p className="text-sm font-semibold">{errorMessage}</p>
             <button
               onClick={() => performSearch(query)}
-              className="mt-4 px-5 py-2 bg-[#f3727f]/20 hover:bg-[#f3727f]/30 text-xs rounded-full font-bold uppercase tracking-wider transition-colors"
+              className="mt-4 px-6 py-2.5 bg-[#f3727f]/20 hover:bg-[#f3727f]/30 text-xs rounded-full font-bold uppercase tracking-wider transition-colors"
             >
               Coba Lagi
             </button>
           </div>
         ) : hasSearched && results.length === 0 ? (
-          <div className="py-16 text-center text-[#727272]">
+          <div className="py-20 text-center text-[#727272] bg-[#181818] border border-[#282828] rounded-2xl p-8 max-w-lg mx-auto">
             <Disc3 className="w-10 h-10 mx-auto mb-3 opacity-40" />
-            <p className="text-sm font-bold text-[#b3b3b3]">Tidak ada lagu yang cocok dengan pencarian Anda</p>
+            <p className="text-sm font-bold text-white">Tidak ada lagu yang cocok dengan pencarian Anda</p>
             <p className="text-xs text-[#727272] mt-1">Coba gunakan kata kunci artis atau judul yang berbeda</p>
           </div>
         ) : !hasSearched ? (
-          <div className="py-16 text-center text-[#727272] border border-dashed border-[#282828] rounded-2xl bg-[#181818]/50">
-            <Compass className="w-10 h-10 text-[#1ed760]/60 mx-auto mb-3" />
+          <div className="py-20 text-center text-[#727272] border border-[#282828] rounded-2xl bg-[#181818]">
+            <Compass className="w-10 h-10 text-[#1ed760] mx-auto mb-3 opacity-80" />
             <p className="text-sm font-bold text-white">Temukan Musik Pilihan</p>
             <p className="text-xs text-[#b3b3b3] max-w-sm mx-auto mt-1">
               Gunakan bilah pencarian di atas atau klik salah satu rekomendasi untuk mulai mendengarkan audio secara berurutan.
             </p>
           </div>
         ) : (
-          <div className="rounded-xl border border-[#282828] bg-[#181818] overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.3)]">
+          <div className="rounded-xl border border-[#282828] bg-[#181818] overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.35)]">
             <div className="grid grid-cols-12 px-4 py-3 border-b border-[#282828] text-xs font-bold text-[#b3b3b3] uppercase tracking-wider">
               <div className="col-span-1 text-center font-mono">#</div>
               <div className="col-span-6 sm:col-span-5">Judul Lagu</div>
@@ -160,10 +161,10 @@ export default function SearchPage() {
                   <div
                     key={`${track.id}-${idx}`}
                     className={`grid grid-cols-12 px-4 py-3 items-center text-xs transition-colors group ${
-                      isCurrent ? "bg-[#282828] text-white" : "hover:bg-[#202020] text-[#b3b3b3]"
+                      isCurrent ? "bg-[#252525] text-white" : "hover:bg-[#1f1f1f] text-[#b3b3b3]"
                     }`}
                   >
-                    {/* Index / Play Indicator */}
+                    {/* Index or Play Indicator */}
                     <div className="col-span-1 text-center font-mono">
                       {isCurrent ? (
                         <Volume2 className="w-4 h-4 text-[#1ed760] mx-auto animate-pulse" />
@@ -171,6 +172,7 @@ export default function SearchPage() {
                         <button
                           onClick={() => playTrack(track, results)}
                           className="text-[#b3b3b3] group-hover:text-white"
+                          aria-label={`Putar ${track.title}`}
                         >
                           <span className="group-hover:hidden">{idx + 1}</span>
                           <Play className="w-3.5 h-3.5 fill-current hidden group-hover:block mx-auto text-white" />
@@ -201,14 +203,14 @@ export default function SearchPage() {
                       {track.album || "Single"}
                     </div>
 
-                    {/* Duration & Add */}
+                    {/* Duration & Add Button */}
                     <div className="col-span-5 sm:col-span-2 flex items-center justify-end gap-2 text-right">
                       <span className="font-mono text-[#727272] mr-2">{track.durationText}</span>
                       <button
                         onClick={() => setSelectedTrackForPlaylist(track)}
                         aria-label="Tambah ke Playlist"
                         title="Tambahkan ke Playlist"
-                        className="p-1.5 rounded-full text-[#b3b3b3] hover:text-white hover:bg-[#242424] transition-colors"
+                        className="p-1.5 rounded-full text-[#b3b3b3] hover:text-white hover:bg-[#282828] transition-colors"
                       >
                         <Plus className="w-4 h-4" />
                       </button>

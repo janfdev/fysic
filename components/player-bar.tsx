@@ -87,7 +87,7 @@ export function PlayerBar() {
           )}
         </div>
 
-        {/* Center: Playback Controls & Progress Bar */}
+        {/* Center: Playback Controls and Progress Bar */}
         <div className="flex flex-col items-center gap-2 flex-1 max-w-xl px-2">
           {/* Controls */}
           <div className="flex items-center gap-5 sm:gap-6">
@@ -114,12 +114,12 @@ export function PlayerBar() {
               <SkipBack className="w-5 h-5 fill-current" />
             </button>
 
-            {/* Play/Pause Button — Spotify Circular Green */}
+            {/* Play and Pause Circular Green Button */}
             <button
               onClick={togglePlay}
               disabled={isLoading || !currentTrack}
               aria-label={isPlaying ? "Pause" : "Play"}
-              className="w-9 h-9 rounded-full bg-[#1ed760] hover:bg-[#1fdf64] hover:scale-105 active:scale-95 text-black flex items-center justify-center transition-all disabled:opacity-40 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+              className="w-9 h-9 rounded-full bg-[#1ed760] hover:bg-[#1fdf64] hover:scale-105 active:scale-95 text-black flex items-center justify-center transition-all disabled:opacity-40 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-[0_4px_12px_rgba(30,215,96,0.4)]"
             >
               {isLoading ? (
                 <Loader2 className="w-4 h-4 animate-spin text-black" />
@@ -182,7 +182,7 @@ export function PlayerBar() {
           </div>
         </div>
 
-        {/* Right: Volume & Extra Controls */}
+        {/* Right: Volume and Queue Controls */}
         <div className="flex items-center justify-end gap-3.5 w-1/4 min-w-[180px] max-w-[320px]">
           {/* Queue Button */}
           <button

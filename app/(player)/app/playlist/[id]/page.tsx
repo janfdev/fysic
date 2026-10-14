@@ -180,10 +180,10 @@ export default function PlaylistDetailPage({
   const totalDurationMin = Math.floor(totalDurationSecs / 60);
 
   return (
-    <div className="p-4 sm:p-8 max-w-7xl mx-auto space-y-8 select-none">
+    <div className="p-4 sm:p-8 max-w-7xl mx-auto space-y-8 select-none selection:bg-[#1ed760] selection:text-black">
       {/* Spotify Heroic Playlist Banner */}
-      <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start sm:items-end p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#282828] via-[#1a1a1a] to-[#121212] border border-[#282828] shadow-[0_8px_24px_rgba(0,0,0,0.5)]">
-        <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-[6px] overflow-hidden bg-[#242424] shrink-0 border border-white/[0.06] shadow-[0_8px_24px_rgba(0,0,0,0.6)]">
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start sm:items-end p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#242424] via-[#1a1a1a] to-[#121212] border border-[#282828] shadow-[0_12px_32px_rgba(0,0,0,0.6)]">
+        <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-[6px] overflow-hidden bg-[#242424] shrink-0 border border-white/[0.06] shadow-[0_12px_28px_rgba(0,0,0,0.7)]">
           <img
             src={playlist.coverUrl || "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300"}
             alt={playlist.title}
@@ -241,14 +241,14 @@ export default function PlaylistDetailPage({
         </div>
       </div>
 
-      {/* Tracks Table — Spotify Layout */}
+      {/* Tracks Table: Spotify-Grade Order Control */}
       <div>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <ListOrdered className="w-4 h-4 text-[#1ed760]" />
             <h2 className="text-xl font-bold text-white tracking-tight">Daftar Urutan Pemutaran</h2>
           </div>
-          <span className="text-xs text-[#727272]">Gunakan panah untuk mengatur alur antrean</span>
+          <span className="text-xs text-[#727272]">Gunakan tombol panah untuk mengatur antrean urutan</span>
         </div>
 
         {tracks.length === 0 ? (
@@ -267,7 +267,7 @@ export default function PlaylistDetailPage({
             </Link>
           </div>
         ) : (
-          <div className="rounded-xl border border-[#282828] bg-[#181818] overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.3)]">
+          <div className="rounded-xl border border-[#282828] bg-[#181818] overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.35)]">
             <div className="grid grid-cols-12 px-4 py-3 border-b border-[#282828] text-xs font-bold text-[#b3b3b3] uppercase tracking-wider">
               <div className="col-span-1 text-center font-mono">#</div>
               <div className="col-span-6 sm:col-span-5">Judul Lagu</div>
@@ -284,7 +284,7 @@ export default function PlaylistDetailPage({
                   <div
                     key={item.id}
                     className={`grid grid-cols-12 px-4 py-3 items-center text-xs transition-colors group ${
-                      isCurrent ? "bg-[#282828] text-white" : "hover:bg-[#202020] text-[#b3b3b3]"
+                      isCurrent ? "bg-[#252525] text-white" : "hover:bg-[#1f1f1f] text-[#b3b3b3]"
                     }`}
                   >
                     {/* Position / Play Indicator */}
@@ -295,6 +295,7 @@ export default function PlaylistDetailPage({
                         <button
                           onClick={() => handlePlaySingle(item)}
                           className="text-[#b3b3b3] group-hover:text-white"
+                          aria-label={`Putar ${item.title}`}
                         >
                           <span className="group-hover:hidden">{idx + 1}</span>
                           <Play className="w-3.5 h-3.5 fill-current hidden group-hover:block mx-auto text-white" />

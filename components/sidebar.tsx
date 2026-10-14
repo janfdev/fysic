@@ -142,7 +142,7 @@ export function Sidebar() {
               <div className="p-4 rounded-xl bg-[#181818] text-center my-2 border border-[#282828]">
                 <ListMusic className="w-6 h-6 text-[#727272] mx-auto mb-2" />
                 <p className="text-xs font-semibold text-white">Buat playlist pertamamu</p>
-                <p className="text-[11px] text-[#b3b3b3] mt-0.5">Mudah kok, kami akan membantumu.</p>
+                <p className="text-[11px] text-[#b3b3b3] mt-0.5">Koleksi lagu favorit tanpa batas.</p>
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="mt-3 px-4 py-1.5 rounded-full text-xs font-bold bg-white text-black hover:scale-105 active:scale-95 transition-all uppercase tracking-wider"
@@ -179,7 +179,7 @@ export function Sidebar() {
           </div>
         </div>
 
-        {/* Footer info & Logout */}
+        {/* Footer info and Logout */}
         <div className="p-3 border-t border-[#282828] flex items-center justify-between text-xs text-[#b3b3b3]">
           <Link href="/" className="hover:text-white transition-colors">
             Tentang fysic
@@ -198,7 +198,7 @@ export function Sidebar() {
         </div>
       </aside>
 
-      {/* Create Playlist Modal — Spotify Dark Style */}
+      {/* Create Playlist Modal with Spotify Dark Tokens */}
       {isModalOpen && (
         <div
           role="dialog"
@@ -220,7 +220,7 @@ export function Sidebar() {
                 onClick={() => setIsModalOpen(false)}
                 className="text-[#b3b3b3] hover:text-white p-1 rounded-full hover:bg-white/[0.06]"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 

@@ -8,7 +8,7 @@ export default function SiteLayout({
 }) {
   return (
     <div className="min-h-screen bg-[#121212] text-white flex flex-col selection:bg-[#1ed760] selection:text-black">
-      {/* Top Navbar — Spotify Dark Chrome */}
+      {/* Top Navbar: Spotify Dark Chrome */}
       <header className="sticky top-0 z-40 border-b border-[#282828] bg-[#121212]/90 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
