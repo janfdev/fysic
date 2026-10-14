@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Disc3, UserPlus, Lock, Mail, User, Loader2 } from "lucide-react";
+import { Disc3, Lock, Mail, User, Loader2 } from "lucide-react";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -40,78 +40,78 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090a0f] text-[#f1f5f9] flex flex-col justify-center items-center px-4 py-12">
+    <div className="min-h-screen bg-[#121212] text-white flex flex-col justify-center items-center px-4 py-12 selection:bg-[#1ed760] selection:text-black">
       <div className="w-full max-w-md">
         {/* Brand Header */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2.5 mb-4 group">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
-              <Disc3 className="w-6 h-6" />
+            <div className="w-10 h-10 rounded-full bg-[#1ed760] flex items-center justify-center text-black group-hover:scale-105 transition-transform shadow-[0_2px_12px_rgba(30,215,96,0.3)]">
+              <Disc3 className="w-6 h-6 fill-black stroke-black" />
             </div>
             <span className="font-extrabold text-2xl tracking-tight text-white">fysic</span>
           </Link>
-          <h1 className="text-xl font-bold text-white tracking-tight">Daftar Akun Baru</h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <h1 className="text-2xl font-extrabold text-white tracking-tight">Daftar Akun Fysic</h1>
+          <p className="text-xs text-[#b3b3b3] mt-1">
             Buat playlist mandiri dan nikmati sequential playback tanpa iklan
           </p>
         </div>
 
         {/* Card */}
-        <div className="bg-[#11131c] border border-white/[0.08] rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div className="bg-[#181818] border border-[#282828] rounded-2xl p-6 sm:p-8 shadow-[0_8px_24px_rgba(0,0,0,0.5)]">
           {error && (
-            <div className="mb-5 p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-xs text-rose-300">
+            <div className="mb-5 p-3 rounded-xl bg-[#f3727f]/10 border border-[#f3727f]/20 text-xs text-[#f3727f] font-medium">
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label className="block text-xs font-bold text-[#b3b3b3] uppercase tracking-wider mb-2">
                 Nama Lengkap
               </label>
               <div className="relative flex items-center">
-                <User className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
+                <User className="w-4 h-4 text-[#727272] absolute left-4 pointer-events-none" />
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Nama Anda"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-[#090a0f] border border-white/[0.12] text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+                  placeholder="Nama Lengkap"
+                  className="w-full pl-11 pr-4 py-3 rounded-full bg-[#121212] border border-[#383838] text-white text-sm focus:outline-none focus:border-[#1ed760] transition-colors"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label className="block text-xs font-bold text-[#b3b3b3] uppercase tracking-wider mb-2">
                 Alamat Email
               </label>
               <div className="relative flex items-center">
-                <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
+                <Mail className="w-4 h-4 text-[#727272] absolute left-4 pointer-events-none" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="pendengar@auramusic.com"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-[#090a0f] border border-white/[0.12] text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+                  placeholder="pendengar@fysic.com"
+                  className="w-full pl-11 pr-4 py-3 rounded-full bg-[#121212] border border-[#383838] text-white text-sm focus:outline-none focus:border-[#1ed760] transition-colors"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label className="block text-xs font-bold text-[#b3b3b3] uppercase tracking-wider mb-2">
                 Kata Sandi
               </label>
               <div className="relative flex items-center">
-                <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
+                <Lock className="w-4 h-4 text-[#727272] absolute left-4 pointer-events-none" />
                 <input
                   type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Minimal 6 karakter"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-[#090a0f] border border-white/[0.12] text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"
+                  className="w-full pl-11 pr-4 py-3 rounded-full bg-[#121212] border border-[#383838] text-white text-sm focus:outline-none focus:border-[#1ed760] transition-colors"
                 />
               </div>
             </div>
@@ -119,26 +119,24 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full mt-2 py-3 rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm flex items-center justify-center gap-2 transition-all disabled:opacity-50 active:scale-[0.98]"
+              className="w-full py-3.5 px-4 rounded-full font-bold bg-[#1ed760] hover:bg-[#1fdf64] hover:scale-[1.02] active:scale-[0.98] text-black text-xs uppercase tracking-wider transition-all disabled:opacity-50 mt-2 shadow-[0_4px_16px_rgba(30,215,96,0.3)] flex items-center justify-center gap-2"
             >
               {loading ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
                 <>
-                  <UserPlus className="w-4 h-4" />
-                  <span>Daftar Akun</span>
+                  <Loader2 className="w-4 h-4 animate-spin text-black" />
+                  <span>Mendaftarkan...</span>
                 </>
+              ) : (
+                <span>Daftar Sekarang</span>
               )}
             </button>
           </form>
 
-          <div className="mt-6 pt-6 border-t border-white/[0.06] text-center">
-            <p className="text-xs text-slate-400">
-              Sudah memiliki akun?{" "}
-              <Link href="/login" className="text-emerald-400 font-semibold hover:underline">
-                Masuk di sini
-              </Link>
-            </p>
+          <div className="mt-6 pt-6 border-t border-[#282828] text-center text-xs text-[#b3b3b3]">
+            <span>Sudah memiliki akun? </span>
+            <Link href="/login" className="font-bold text-white hover:underline hover:text-[#1ed760]">
+              Masuk di sini
+            </Link>
           </div>
         </div>
       </div>

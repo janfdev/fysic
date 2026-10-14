@@ -10,26 +10,26 @@ export default function PlayerLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-screen bg-[#090a0f] text-[#f1f5f9] flex flex-col overflow-hidden">
-      {/* Top Mobile Bar */}
-      <div className="md:hidden h-14 border-b border-white/[0.08] bg-[#11131c] px-4 flex items-center justify-between shrink-0">
-        <Link href="/app" className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-            <Disc3 className="w-4 h-4" />
+    <div className="h-screen bg-[#121212] text-white flex flex-col overflow-hidden selection:bg-[#1ed760] selection:text-black">
+      {/* Top Mobile Bar — Spotify Dark */}
+      <div className="md:hidden h-14 border-b border-[#282828] bg-[#181818] px-4 flex items-center justify-between shrink-0">
+        <Link href="/app" className="flex items-center gap-2.5">
+          <div className="w-7 h-7 rounded-full bg-[#1ed760] flex items-center justify-center text-black">
+            <Disc3 className="w-4 h-4 fill-black stroke-black" />
           </div>
-          <span className="font-bold text-sm text-white">fysic</span>
+          <span className="font-extrabold text-sm text-white tracking-tight">fysic</span>
         </Link>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Link
             href="/app"
-            className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.06]"
+            className="p-2 rounded-full text-[#b3b3b3] hover:text-white hover:bg-[#242424]"
             aria-label="Beranda"
           >
             <Home className="w-4 h-4" />
           </Link>
           <Link
             href="/app/search"
-            className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.06]"
+            className="p-2 rounded-full text-[#b3b3b3] hover:text-white hover:bg-[#242424]"
             aria-label="Cari Lagu"
           >
             <Search className="w-4 h-4" />
@@ -43,7 +43,7 @@ export default function PlayerLayout({
           <Sidebar />
         </div>
 
-        <main className="flex-1 overflow-y-auto pb-[94px]">
+        <main className="flex-1 overflow-y-auto pb-[98px]">
           {children}
         </main>
       </div>
