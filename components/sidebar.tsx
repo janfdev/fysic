@@ -81,16 +81,16 @@ export function Sidebar() {
 
   return (
     <>
-      <aside className="w-64 bg-[#11131c] border-r border-white/[0.08] flex flex-col shrink-0 h-[calc(100vh-84px)] select-none">
+      <aside className="w-64 bg-[#121212] border-r border-[#282828] flex flex-col shrink-0 h-[calc(100vh-88px)] select-none">
         {/* Brand Header */}
-        <div className="p-5 border-b border-white/[0.06] flex items-center justify-between">
+        <div className="p-5 border-b border-[#282828] flex items-center justify-between">
           <Link href="/app" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
-              <Disc3 className="w-5 h-5" />
+            <div className="w-8 h-8 rounded-full bg-[#1ed760] flex items-center justify-center text-black group-hover:scale-105 transition-transform shadow-[0_2px_8px_rgba(30,215,96,0.4)]">
+              <Disc3 className="w-5 h-5 fill-black stroke-black" />
             </div>
             <div>
-              <span className="font-bold text-base text-white tracking-tight">fysic</span>
-              <span className="block text-[10px] text-emerald-400 font-medium tracking-wide uppercase">Sequential</span>
+              <span className="font-extrabold text-base text-white tracking-tight">fysic</span>
+              <span className="block text-[10px] text-[#1ed760] font-bold tracking-wider uppercase">Spotify Edition</span>
             </div>
           </Link>
         </div>
@@ -99,39 +99,39 @@ export function Sidebar() {
         <div className="p-3 space-y-1">
           <Link
             href="/app"
-            className={`flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+            className={`flex items-center gap-4 px-4 py-3 rounded-full text-sm transition-colors ${
               pathname === "/app"
-                ? "bg-emerald-500/10 text-emerald-400 font-semibold"
-                : "text-slate-300 hover:text-white hover:bg-white/[0.04]"
+                ? "bg-[#242424] text-white font-bold"
+                : "text-[#b3b3b3] hover:text-white hover:bg-[#1a1a1a] font-normal"
             }`}
           >
-            <Home className="w-4 h-4 shrink-0" />
+            <Home className="w-5 h-5 shrink-0" />
             <span>Beranda</span>
           </Link>
 
           <Link
             href="/app/search"
-            className={`flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+            className={`flex items-center gap-4 px-4 py-3 rounded-full text-sm transition-colors ${
               pathname === "/app/search"
-                ? "bg-emerald-500/10 text-emerald-400 font-semibold"
-                : "text-slate-300 hover:text-white hover:bg-white/[0.04]"
+                ? "bg-[#242424] text-white font-bold"
+                : "text-[#b3b3b3] hover:text-white hover:bg-[#1a1a1a] font-normal"
             }`}
           >
-            <Search className="w-4 h-4 shrink-0" />
+            <Search className="w-5 h-5 shrink-0" />
             <span>Cari Lagu</span>
           </Link>
         </div>
 
         {/* Playlists Section */}
-        <div className="flex-1 flex flex-col min-h-0 px-3 pt-4 border-t border-white/[0.06]">
-          <div className="flex items-center justify-between px-2 pb-2">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+        <div className="flex-1 flex flex-col min-h-0 px-3 pt-4 border-t border-[#282828]">
+          <div className="flex items-center justify-between px-3 pb-2">
+            <span className="text-[11px] font-bold text-[#b3b3b3] uppercase tracking-wider">
               Playlist Saya
             </span>
             <button
               onClick={() => setIsModalOpen(true)}
               aria-label="Buat Playlist Baru"
-              className="w-6 h-6 rounded flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/[0.08] transition-colors"
+              className="w-7 h-7 rounded-full flex items-center justify-center text-[#b3b3b3] hover:text-white hover:bg-[#242424] transition-colors"
             >
               <Plus className="w-4 h-4" />
             </button>
@@ -139,14 +139,15 @@ export function Sidebar() {
 
           <div className="flex-1 overflow-y-auto space-y-0.5 pr-1">
             {playlists.length === 0 ? (
-              <div className="p-4 text-center">
-                <ListMusic className="w-6 h-6 text-slate-600 mx-auto mb-2" />
-                <p className="text-xs text-slate-400">Belum ada playlist</p>
+              <div className="p-4 rounded-xl bg-[#181818] text-center my-2 border border-[#282828]">
+                <ListMusic className="w-6 h-6 text-[#727272] mx-auto mb-2" />
+                <p className="text-xs font-semibold text-white">Buat playlist pertamamu</p>
+                <p className="text-[11px] text-[#b3b3b3] mt-0.5">Mudah kok, kami akan membantumu.</p>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="mt-2 text-xs text-emerald-400 hover:underline"
+                  className="mt-3 px-4 py-1.5 rounded-full text-xs font-bold bg-white text-black hover:scale-105 active:scale-95 transition-all uppercase tracking-wider"
                 >
-                  Buat playlist pertama
+                  Buat Playlist
                 </button>
               </div>
             ) : (
@@ -156,17 +157,19 @@ export function Sidebar() {
                   <Link
                     key={pl.id}
                     href={`/app/playlist/${pl.id}`}
-                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs transition-colors group ${
+                    className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-xs transition-colors group ${
                       isActive
-                        ? "bg-emerald-500/10 text-emerald-300 font-semibold"
-                        : "text-slate-300 hover:text-white hover:bg-white/[0.04]"
+                        ? "bg-[#242424] text-white font-bold"
+                        : "text-[#b3b3b3] hover:text-white hover:bg-[#181818]"
                     }`}
                   >
-                    <div className="flex items-center gap-2.5 truncate">
-                      <Music className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-emerald-400" : "text-slate-500 group-hover:text-slate-300"}`} />
+                    <div className="flex items-center gap-3 truncate">
+                      <div className="w-7 h-7 rounded-[4px] bg-[#242424] flex items-center justify-center shrink-0 border border-white/[0.04]">
+                        <Music className={`w-3.5 h-3.5 ${isActive ? "text-[#1ed760]" : "text-[#727272] group-hover:text-white"}`} />
+                      </div>
                       <span className="truncate">{pl.title}</span>
                     </div>
-                    <span className="text-[10px] text-slate-500 shrink-0 ml-2">
+                    <span className="text-[10px] text-[#727272] font-mono shrink-0 ml-2">
                       {pl.trackCount}
                     </span>
                   </Link>
@@ -177,8 +180,8 @@ export function Sidebar() {
         </div>
 
         {/* Footer info & Logout */}
-        <div className="p-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-slate-400">
-          <Link href="/" className="hover:text-slate-200 transition-colors">
+        <div className="p-3 border-t border-[#282828] flex items-center justify-between text-xs text-[#b3b3b3]">
+          <Link href="/" className="hover:text-white transition-colors">
             Tentang fysic
           </Link>
           <button
@@ -187,7 +190,7 @@ export function Sidebar() {
               router.push("/login");
             }}
             title="Keluar"
-            className="flex items-center gap-1.5 hover:text-rose-400 transition-colors"
+            className="flex items-center gap-1.5 hover:text-[#f3727f] transition-colors"
           >
             <LogOut className="w-3.5 h-3.5" />
             <span>Keluar</span>
@@ -195,27 +198,27 @@ export function Sidebar() {
         </div>
       </aside>
 
-      {/* Create Playlist Modal */}
+      {/* Create Playlist Modal — Spotify Dark Style */}
       {isModalOpen && (
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
           onKeyDown={(e) => {
             if (e.key === "Escape") setIsModalOpen(false);
           }}
         >
-          <div className="bg-[#161926] border border-white/[0.1] rounded-2xl p-6 w-full max-w-md shadow-2xl animate-in fade-in duration-150">
+          <div className="bg-[#242424] border border-[#383838] rounded-xl p-6 w-full max-w-md shadow-[0_8px_24px_rgba(0,0,0,0.5)] animate-in fade-in duration-150">
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <div className="w-8 h-8 rounded-full bg-[#1ed760]/10 border border-[#1ed760]/30 flex items-center justify-center text-[#1ed760]">
                   <FolderPlus className="w-4 h-4" />
                 </div>
                 <h3 className="font-bold text-white text-base">Buat Playlist Baru</h3>
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/[0.06]"
+                className="text-[#b3b3b3] hover:text-white p-1 rounded-full hover:bg-white/[0.06]"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -223,7 +226,7 @@ export function Sidebar() {
 
             <form onSubmit={handleCreatePlaylist} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                <label className="block text-xs font-bold text-[#b3b3b3] uppercase tracking-wider mb-2">
                   Nama Playlist
                 </label>
                 <input
@@ -232,13 +235,13 @@ export function Sidebar() {
                   placeholder="Contoh: Fokus Koding Malam"
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#090a0f] border border-white/[0.12] text-white text-sm focus:border-emerald-500 focus:outline-none transition-colors"
+                  className="w-full px-4 py-2.5 rounded-full bg-[#121212] border border-[#383838] text-white text-sm focus:border-[#1ed760] focus:outline-none transition-colors"
                   autoFocus
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                <label className="block text-xs font-bold text-[#b3b3b3] uppercase tracking-wider mb-2">
                   Deskripsi (Opsional)
                 </label>
                 <textarea
@@ -246,7 +249,7 @@ export function Sidebar() {
                   placeholder="Daftar lagu untuk menemani koding..."
                   value={newDesc}
                   onChange={(e) => setNewDesc(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#090a0f] border border-white/[0.12] text-white text-sm focus:border-emerald-500 focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-2.5 rounded-2xl bg-[#121212] border border-[#383838] text-white text-sm focus:border-[#1ed760] focus:outline-none transition-colors resize-none"
                 />
               </div>
 
@@ -254,16 +257,16 @@ export function Sidebar() {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-white transition-colors"
+                  className="px-5 py-2 rounded-full text-xs font-bold text-[#b3b3b3] hover:text-white transition-colors uppercase tracking-wider"
                 >
                   Batal
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting || !newTitle.trim()}
-                  className="px-5 py-2 rounded-lg text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-colors disabled:opacity-50"
+                  className="px-6 py-2 rounded-full text-xs font-bold bg-[#1ed760] hover:bg-[#1fdf64] hover:scale-105 active:scale-95 text-black transition-all disabled:opacity-50 uppercase tracking-wider shadow-[0_4px_12px_rgba(30,215,96,0.3)]"
                 >
-                  {isSubmitting ? "Menyimpan..." : "Buat Playlist"}
+                  {isSubmitting ? "Menyimpan..." : "Buat"}
                 </button>
               </div>
             </form>

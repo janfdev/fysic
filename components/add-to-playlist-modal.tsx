@@ -100,49 +100,49 @@ export function AddToPlaylistModal({ track, isOpen, onClose }: AddToPlaylistModa
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 select-none"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 select-none"
       onClick={onClose}
       onKeyDown={(e) => {
         if (e.key === "Escape") onClose();
       }}
     >
       <div
-        className="bg-[#161926] border border-white/[0.1] rounded-2xl p-6 w-full max-w-md shadow-2xl animate-in fade-in duration-150"
+        className="bg-[#242424] border border-[#383838] rounded-2xl p-6 w-full max-w-md shadow-[0_8px_24px_rgba(0,0,0,0.6)] animate-in fade-in duration-150"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-bold text-white text-base">Tambahkan ke Playlist</h3>
+          <h3 className="font-bold text-white text-base tracking-tight">Tambahkan ke Playlist</h3>
           <button
             onClick={onClose}
             aria-label="Tutup Dialog"
-            className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/[0.06]"
+            className="text-[#b3b3b3] hover:text-white p-1 rounded-full hover:bg-white/[0.06]"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Selected Track Pill */}
-        <div className="flex items-center gap-3 p-2.5 rounded-xl bg-[#090a0f] border border-white/[0.06] mb-5">
+        <div className="flex items-center gap-3 p-2.5 rounded-xl bg-[#181818] border border-[#282828] mb-5">
           <img
             src={track.thumbnail || "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=120"}
             alt={track.title}
-            className="w-10 h-10 rounded-lg object-cover"
+            className="w-11 h-11 rounded-[4px] object-cover"
           />
           <div className="min-w-0 flex-1">
-            <p className="text-xs font-semibold text-white truncate">{track.title}</p>
-            <p className="text-[11px] text-slate-400 truncate">{track.artist}</p>
+            <p className="text-xs font-bold text-white truncate">{track.title}</p>
+            <p className="text-[11px] text-[#b3b3b3] truncate mt-0.5">{track.artist}</p>
           </div>
         </div>
 
         {/* Existing Playlists */}
-        <div className="space-y-2 max-h-60 overflow-y-auto mb-4 pr-1">
+        <div className="space-y-1.5 max-h-60 overflow-y-auto mb-4 pr-1">
           {loading ? (
-            <div className="p-6 text-center text-slate-500">
-              <Loader2 className="w-5 h-5 animate-spin mx-auto mb-2" />
+            <div className="p-6 text-center text-[#727272]">
+              <Loader2 className="w-5 h-5 animate-spin mx-auto mb-2 text-[#1ed760]" />
               <p className="text-xs">Memuat daftar playlist...</p>
             </div>
           ) : playlists.length === 0 ? (
-            <div className="p-4 text-center text-xs text-slate-400">
+            <div className="p-4 text-center text-xs text-[#b3b3b3]">
               Belum ada playlist. Buat playlist baru di bawah ini.
             </div>
           ) : (
@@ -153,23 +153,23 @@ export function AddToPlaylistModal({ track, isOpen, onClose }: AddToPlaylistModa
                   key={pl.id}
                   onClick={() => handleAddToPlaylist(pl.id)}
                   disabled={isAdded}
-                  className={`w-full flex items-center justify-between p-3 rounded-xl border transition-colors text-left ${
+                  className={`w-full flex items-center justify-between p-3 rounded-lg border transition-colors text-left ${
                     isAdded
-                      ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-300"
-                      : "bg-[#11131c] border-white/[0.06] hover:border-white/[0.15] text-white hover:bg-white/[0.02]"
+                      ? "bg-[#1ed760]/15 border-[#1ed760]/40 text-[#1ed760]"
+                      : "bg-[#181818] border-transparent hover:border-[#383838] text-white hover:bg-[#202020]"
                   }`}
                 >
                   <div className="flex items-center gap-2.5 truncate">
-                    <Music className="w-4 h-4 text-slate-500 shrink-0" />
-                    <span className="text-xs font-medium truncate">{pl.title}</span>
+                    <Music className="w-4 h-4 text-[#727272] shrink-0" />
+                    <span className="text-xs font-bold truncate">{pl.title}</span>
                   </div>
                   {isAdded ? (
-                    <div className="flex items-center gap-1 text-xs text-emerald-400 font-semibold shrink-0">
+                    <div className="flex items-center gap-1 text-xs text-[#1ed760] font-bold shrink-0">
                       <Check className="w-3.5 h-3.5" />
                       <span>Tersimpan</span>
                     </div>
                   ) : (
-                    <Plus className="w-4 h-4 text-slate-400 shrink-0" />
+                    <Plus className="w-4 h-4 text-[#727272] shrink-0" />
                   )}
                 </button>
               );
@@ -179,26 +179,26 @@ export function AddToPlaylistModal({ track, isOpen, onClose }: AddToPlaylistModa
 
         {/* Create new playlist inline */}
         {showNewInput ? (
-          <form onSubmit={handleCreateAndAdd} className="pt-2 border-t border-white/[0.06] flex items-center gap-2">
+          <form onSubmit={handleCreateAndAdd} className="pt-3 border-t border-[#282828] flex items-center gap-2">
             <input
               type="text"
               required
               placeholder="Nama playlist baru..."
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
-              className="flex-1 px-3 py-2 rounded-lg bg-[#090a0f] border border-white/[0.12] text-xs text-white focus:outline-none focus:border-emerald-500"
+              className="flex-1 px-4 py-2 rounded-full bg-[#121212] border border-[#383838] text-xs text-white focus:outline-none focus:border-[#1ed760]"
               autoFocus
             />
             <button
               type="submit"
-              className="px-3 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs rounded-lg transition-colors"
+              className="px-4 py-2 bg-[#1ed760] hover:bg-[#1fdf64] text-black font-bold text-xs rounded-full transition-colors uppercase tracking-wider"
             >
               Simpan
             </button>
             <button
               type="button"
               onClick={() => setShowNewInput(false)}
-              className="px-2 py-2 text-slate-400 hover:text-white text-xs"
+              className="px-3 py-2 text-[#b3b3b3] hover:text-white text-xs uppercase tracking-wider"
             >
               Batal
             </button>
@@ -206,10 +206,10 @@ export function AddToPlaylistModal({ track, isOpen, onClose }: AddToPlaylistModa
         ) : (
           <button
             onClick={() => setShowNewInput(true)}
-            className="w-full py-2.5 rounded-xl border border-dashed border-white/[0.15] hover:border-emerald-500/40 text-xs font-medium text-slate-300 hover:text-emerald-300 flex items-center justify-center gap-2 transition-colors"
+            className="w-full py-2.5 rounded-full border border-dashed border-[#4d4d4d] hover:border-[#1ed760] text-xs font-bold text-[#b3b3b3] hover:text-white flex items-center justify-center gap-2 transition-colors uppercase tracking-wider"
           >
-            <FolderPlus className="w-4 h-4" />
-            <span>Buat Playlist Baru & Simpan</span>
+            <FolderPlus className="w-4 h-4 text-[#1ed760]" />
+            <span>Buat Playlist Baru</span>
           </button>
         )}
       </div>
