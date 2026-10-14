@@ -200,29 +200,31 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[#282828] bg-[#181818] overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.5)]">
-            <div className="grid grid-cols-12 bg-[#1f1f1f] p-4 sm:p-5 border-b border-[#282828] text-xs font-bold uppercase tracking-wider">
-              <div className="col-span-5 text-[#b3b3b3]">Fitur Inti</div>
-              <div className="col-span-3 text-[#727272]">Aplikasi Gratis Biasa</div>
-              <div className="col-span-4 text-[#1ed760]">Fysic Player</div>
-            </div>
+          <div className="rounded-2xl border border-[#282828] bg-[#181818] overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.5)] overflow-x-auto">
+            <div className="min-w-[540px]">
+              <div className="grid grid-cols-12 bg-[#1f1f1f] p-4 sm:p-5 border-b border-[#282828] text-xs font-bold uppercase tracking-wider">
+                <div className="col-span-5 text-[#b3b3b3]">Fitur Inti</div>
+                <div className="col-span-3 text-[#727272]">Aplikasi Gratis Biasa</div>
+                <div className="col-span-4 text-[#1ed760]">Fysic Player</div>
+              </div>
 
-            <div className="divide-y divide-[#242424]">
-              {comparisonItems.map((item, idx) => (
-                <div key={idx} className="grid grid-cols-12 p-4 sm:p-5 items-center gap-2 hover:bg-[#202020] transition-colors">
-                  <div className="col-span-5 font-bold text-xs sm:text-sm text-white">
-                    {item.feature}
+              <div className="divide-y divide-[#242424]">
+                {comparisonItems.map((item, idx) => (
+                  <div key={idx} className="grid grid-cols-12 p-4 sm:p-5 items-center gap-2 hover:bg-[#202020] transition-colors">
+                    <div className="col-span-5 font-bold text-xs sm:text-sm text-white">
+                      {item.feature}
+                    </div>
+                    <div className="col-span-3 flex items-start gap-2 text-xs text-[#727272]">
+                      <X className="size-4 text-[#f3727f] shrink-0 mt-0.5" />
+                      <span>{item.spotify}</span>
+                    </div>
+                    <div className="col-span-4 flex items-start gap-2 text-xs sm:text-sm text-white">
+                      <Check className="size-4 text-[#1ed760] shrink-0 mt-0.5" />
+                      <span className="font-semibold text-white">{item.aura}</span>
+                    </div>
                   </div>
-                  <div className="col-span-3 flex items-start gap-2 text-xs text-[#727272]">
-                    <X className="size-4 text-[#f3727f] shrink-0 mt-0.5" />
-                    <span>{item.spotify}</span>
-                  </div>
-                  <div className="col-span-4 flex items-start gap-2 text-xs sm:text-sm text-white">
-                    <Check className="size-4 text-[#1ed760] shrink-0 mt-0.5" />
-                    <span className="font-semibold text-white">{item.aura}</span>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

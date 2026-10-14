@@ -66,10 +66,10 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="p-4 sm:p-8 max-w-7xl mx-auto space-y-8 select-none selection:bg-[#1ed760] selection:text-black">
+    <div className="p-3 sm:p-8 max-w-7xl mx-auto space-y-6 sm:space-y-8 select-none selection:bg-[#1ed760] selection:text-black">
       {/* Search Header & Tactile Pill Bar */}
       <div className="max-w-2xl space-y-3">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
           Cari Katalog Musik
         </h1>
         <p className="text-xs sm:text-sm text-[#b3b3b3]">
@@ -83,7 +83,7 @@ export default function SearchPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Apa yang ingin kamu dengarkan?"
-            className="w-full pl-12 pr-10 py-3.5 rounded-full bg-[#181818] border border-[#282828] text-sm text-white placeholder-[#727272] focus:outline-none focus:border-[#1ed760] focus:bg-[#202020] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
+            className="w-full pl-12 pr-10 py-3 sm:py-3.5 rounded-full bg-[#181818] border border-[#282828] text-xs sm:text-sm text-white placeholder-[#727272] focus:outline-none focus:border-[#1ed760] focus:bg-[#202020] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
           />
           {query && (
             <button
@@ -98,14 +98,14 @@ export default function SearchPage() {
         </form>
 
         {/* Suggestion Chips */}
-        <div className="flex flex-wrap items-center gap-2 pt-1">
-          <span className="text-[11px] font-bold text-[#b3b3b3] uppercase tracking-wider mr-1">Rekomendasi:</span>
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1">
+          <span className="text-[10px] sm:text-[11px] font-bold text-[#b3b3b3] uppercase tracking-wider mr-1">Rekomendasi:</span>
           {SUGGESTIONS.map((sug) => (
             <button
               key={sug}
               type="button"
               onClick={() => handleSuggestionClick(sug)}
-              className="text-xs px-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#222222] text-[#b3b3b3] hover:text-white border border-[#282828] hover:border-[#383838] transition-colors"
+              className="text-[11px] sm:text-xs px-3 sm:px-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#222222] text-[#b3b3b3] hover:text-white border border-[#282828] hover:border-[#383838] transition-colors"
             >
               {sug}
             </button>
@@ -147,11 +147,11 @@ export default function SearchPage() {
           </div>
         ) : (
           <div className="rounded-xl border border-[#282828] bg-[#181818] overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.35)]">
-            <div className="grid grid-cols-12 px-4 py-3 border-b border-[#282828] text-xs font-bold text-[#b3b3b3] uppercase tracking-wider">
+            <div className="grid grid-cols-12 px-3 sm:px-4 py-3 border-b border-[#282828] text-xs font-bold text-[#b3b3b3] uppercase tracking-wider">
               <div className="col-span-1 text-center font-mono">#</div>
-              <div className="col-span-6 sm:col-span-5">Judul Lagu</div>
-              <div className="hidden sm:block col-span-4">Album</div>
-              <div className="col-span-5 sm:col-span-2 text-right">Durasi / Aksi</div>
+              <div className="col-span-8 sm:col-span-6 md:col-span-5">Judul Lagu</div>
+              <div className="hidden md:block col-span-3 lg:col-span-4">Album</div>
+              <div className="col-span-3 sm:col-span-2 text-right">Durasi / Aksi</div>
             </div>
 
             <div className="divide-y divide-[#242424]">
@@ -160,7 +160,7 @@ export default function SearchPage() {
                 return (
                   <div
                     key={`${track.id}-${idx}`}
-                    className={`grid grid-cols-12 px-4 py-3 items-center text-xs transition-colors group ${
+                    className={`grid grid-cols-12 px-3 sm:px-4 py-2.5 sm:py-3 items-center text-xs transition-colors group ${
                       isCurrent ? "bg-[#252525] text-white" : "hover:bg-[#1f1f1f] text-[#b3b3b3]"
                     }`}
                   >
@@ -182,13 +182,13 @@ export default function SearchPage() {
 
                     {/* Title & Artist */}
                     <div
-                      className="col-span-6 sm:col-span-5 flex items-center gap-3 cursor-pointer min-w-0"
+                      className="col-span-8 sm:col-span-6 md:col-span-5 flex items-center gap-2.5 sm:gap-3 cursor-pointer min-w-0"
                       onClick={() => playTrack(track, results)}
                     >
                       <img
                         src={track.thumbnail || "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=120"}
                         alt={track.title}
-                        className="w-10 h-10 rounded-[4px] object-cover bg-[#242424] shrink-0 border border-white/[0.04]"
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-[4px] object-cover bg-[#242424] shrink-0 border border-white/[0.04]"
                       />
                       <div className="truncate">
                         <p className={`font-bold truncate ${isCurrent ? "text-[#1ed760]" : "text-white group-hover:underline"}`}>
@@ -199,20 +199,20 @@ export default function SearchPage() {
                     </div>
 
                     {/* Album */}
-                    <div className="hidden sm:block col-span-4 text-[#b3b3b3] truncate">
+                    <div className="hidden md:block col-span-3 lg:col-span-4 text-[#b3b3b3] truncate">
                       {track.album || "Single"}
                     </div>
 
                     {/* Duration & Add Button */}
-                    <div className="col-span-5 sm:col-span-2 flex items-center justify-end gap-2 text-right">
-                      <span className="font-mono text-[#727272] mr-2">{track.durationText}</span>
+                    <div className="col-span-3 sm:col-span-2 flex items-center justify-end gap-1.5 sm:gap-2 text-right">
+                      <span className="font-mono text-[#727272] text-[11px] sm:text-xs mr-1">{track.durationText}</span>
                       <button
                         onClick={() => setSelectedTrackForPlaylist(track)}
                         aria-label="Tambah ke Playlist"
                         title="Tambahkan ke Playlist"
-                        className="p-1.5 rounded-full text-[#b3b3b3] hover:text-white hover:bg-[#282828] transition-colors"
+                        className="p-1 sm:p-1.5 rounded-full text-[#b3b3b3] hover:text-white hover:bg-[#282828] transition-colors"
                       >
-                        <Plus className="w-4 h-4" />
+                        <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </button>
                     </div>
                   </div>

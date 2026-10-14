@@ -25,7 +25,7 @@ export function QueueDrawer({ isOpen, onClose }: QueueDrawerProps) {
       }}
     >
       <div
-        className="w-full max-w-sm sm:max-w-md bg-[#181818] border-l border-[#282828] h-full pb-[96px] flex flex-col shadow-[0_8px_24px_rgba(0,0,0,0.6)] animate-in slide-in-from-right duration-200"
+        className="w-full max-w-full sm:max-w-md bg-[#181818] border-l border-[#282828] h-full pb-[86px] sm:pb-[96px] flex flex-col shadow-[0_8px_24px_rgba(0,0,0,0.6)] animate-in slide-in-from-right duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
